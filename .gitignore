@@ -1,0 +1,11 @@
+back/node_modules
+back/studentsData/*
+!back/studentsData/.gitkeep
+back/.env
+
+
+node_modules
+
+dist
+
+.env
