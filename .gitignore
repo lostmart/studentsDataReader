@@ -4,6 +4,23 @@ back/studentsData/*
 back/.env
 
 
+front/node_modules
+
+# Logs
+front/logs
+*.log
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*
+front/pnpm-debug.log*
+front/lerna-debug.log*
+
+front/node_modules
+front/dist
+front/dist-ssr
+front/*.local
+
+
 node_modules
 
 dist
