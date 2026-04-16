@@ -1,0 +1,18 @@
+[
+    { "id": 1,  "name": "Introduction to Relational Databases BCS" },
+    { "id": 2,  "name": "Introduction to Web Programming BSC" },
+    { "id": 3,  "name": "Introduction to Programming with Python" },
+    { "id": 4,  "name": "Algorithmics and Data Structures BSC" },
+    { "id": 5,  "name": "S1 Project" },
+    { "id": 6,  "name": "Fundamental Mathematics" },
+    { "id": 7,  "name": "Mathematics applied to Digital Engineering Number Systems" },
+    { "id": 8,  "name": "Algebra 1" },
+    { "id": 9,  "name": "Probabilities and Statistics BCS" },
+    { "id": 10, "name": "Introduction to Linux BSC" },
+    { "id": 11, "name": "Principles and Architecture of Information Systems BSC" },
+    { "id": 12, "name": "Fundamentals of Microsoft Windows Operating System BSC" },
+    { "id": 13, "name": "AI Module" },
+    { "id": 14, "name": "French for BSc S1" },
+    { "id": 15, "name": "Corporate Social Responsibility BSC" },
+    { "id": 16, "name": "Cultural Integration Workshop Bachelor" }
+]

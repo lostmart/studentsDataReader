@@ -21,7 +21,7 @@ const PerformanceAnalytics = () => {
   ];
 
   return (
-    <main className="flex-1 md:ml-64 p-8 bg-surface">
+    <main className="flex-1 p-8 bg-surface">
       {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

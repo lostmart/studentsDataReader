@@ -3,9 +3,11 @@ import dotenv from "dotenv";
 import { parse } from "csv-parse/sync";
 import fs from "fs";
 import path from "path";
+import cors from "cors";
 
 import G1 from "../studentsData/G1.json";
 import G2 from "../studentsData/G2.json";
+import coursesNames from "../studentsData/coursesNames.json";
 
 dotenv.config();
 
@@ -13,6 +15,8 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 const DATA_DIR = path.join(__dirname, "../studentsData");
 
@@ -133,6 +137,40 @@ app.get("/grades/G1", (_req, res) => {
 app.get("/grades/G2", (_req, res) => {
   const students = withGrades(G2);
   res.json({ msg: "Grades G2", count: students.length, students });
+});
+
+app.get("/grades/all", (_req, res) => {
+  const students = withGrades(G1.concat(G2));
+  res.json({ msg: "Grades all", count: students.length, students });
+});
+
+app.get("/grades/bySubjectsId/:id", (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const course = coursesNames.find((c) => c.id === id);
+
+  if (!course) {
+    res.status(404).json({ error: `No course found with id ${id}` });
+    return;
+  }
+
+  const subjectName = course.name;
+
+  const extractGrade = (student: ReturnType<typeof withGrades>[number]) =>
+    (student.grades?.[subjectName] as SubjectGrades | undefined) ?? null;
+
+  const g1Grades = withGrades(G1).map((s) => ({
+    firstName: s.firstName,
+    lastName: s.lastName,
+    grades: extractGrade(s),
+  }));
+
+  const g2Grades = withGrades(G2).map((s) => ({
+    firstName: s.firstName,
+    lastName: s.lastName,
+    grades: extractGrade(s),
+  }));
+
+  res.json({ subject: subjectName, G1: g1Grades, G2: g2Grades });
 });
 
 app.listen(PORT, () => {
