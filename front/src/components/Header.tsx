@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-surface/80 backdrop-blur-xl flex items-center justify-between px-8 h-16 border-b border-outline-variant/10">
       <div className="flex items-center gap-8">
-        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container tracking-tight">
+        {/* <span className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-container tracking-tight">
           AnalyticalAtelier
         </span>
         <nav className="hidden md:flex items-center gap-6">
@@ -57,6 +57,7 @@ export default function Header() {
             referrerPolicy="no-referrer"
           />
         </div>
+     */}
       </div>
     </header>
   );

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   LayoutDashboard,
   Users,
@@ -10,9 +12,9 @@ import {
 import { motion } from "motion/react";
 
 const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", active: false },
+  { icon: LayoutDashboard, label: "Dashboard",  active: true },
   { icon: Users, label: "Student Records", active: false },
-  { icon: BarChart3, label: "Performance Analytics", active: true },
+  { icon: BarChart3, label: "Performance Analytics" },
   { icon: BookOpen, label: "Curriculum", active: false },
   { icon: FileText, label: "Faculty Reports", active: false },
 ];
@@ -27,19 +29,20 @@ export default function Sidebar() {
 
       <nav className="flex-1 space-y-1">
         {navItems.map((item) => (
-          <motion.a
-            key={item.label}
-            href="#"
-            whileHover={{ x: 4 }}
-            className={`flex items-center gap-3 px-3 py-2.5 transition-all duration-200 rounded-xl ${
-              item.active
-                ? "bg-white text-primary shadow-sm"
-                : "text-secondary hover:text-on-surface"
-            }`}
-          >
-            <item.icon size={20} strokeWidth={item.active ? 2.5 : 2} />
-            <span>{item.label}</span>
-          </motion.a>
+          <motion.span>
+            <Link
+              to="/"
+              key={item.label}
+              className={`flex items-center gap-3 px-3 py-2.5 transition-all duration-200 rounded-xl ${
+                item.active
+                  ? "bg-white text-primary shadow-sm"
+                  : "text-secondary hover:text-on-surface"
+              }`}
+            >
+              <item.icon size={20} strokeWidth={item.active ? 2.5 : 2} />
+              <span>{item.label}</span>
+            </Link>
+          </motion.span>
         ))}
       </nav>
 
